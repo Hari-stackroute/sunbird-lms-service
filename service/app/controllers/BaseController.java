@@ -613,6 +613,9 @@ public class BaseController extends Controller {
 
           if (result instanceof Response) {
             Response response = (Response) result;
+            ProjectLogger.log("response.getResponseCode(): "+ response.getResponseCode(), LoggerEnum.INFO);
+            ProjectLogger.log("response.getResponseCode().getResponseCode(): "+ response.getResponseCode().getResponseCode(), LoggerEnum.INFO);
+            ProjectLogger.log("response.getResponseCode().getErrorMessage(): "+ response.getResponseCode().getErrorMessage(), LoggerEnum.INFO);
             if (ResponseCode.OK.getResponseCode()
                 == (response.getResponseCode().getResponseCode())) {
               return createCommonResponse(response, responseKey, httpReq);
